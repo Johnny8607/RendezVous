@@ -112,13 +112,21 @@
   --sidebar-ring: oklch(0.645 0.246 16.439);
 }
 
-
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Custom text selection color */
+  ::selection {
+    background-color: rgb(253, 186, 216); /* Light pink */
+    color: rgb(136, 19, 55); /* Dark rose for contrast */
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
