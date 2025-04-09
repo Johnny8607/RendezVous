@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Heart, UtensilsCrossed, Palette, Dumbbell, Plane } from "lucide-react";
+import { Heart, UtensilsCrossed, Palette, Dumbbell, Plane, HeartIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+
+
 
 
 const ideas = {
@@ -67,6 +69,7 @@ const categoryIcons = {
 };
 
 export default function DateIdeasPage() {
+    const [likedIdeas, setLikedIdeas] = useState<{ [key: string]: boolean }>({});
   const [selectedCategory, setSelectedCategory] = useState<keyof typeof ideas | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -152,6 +155,9 @@ export default function DateIdeasPage() {
                                 className="rounded-md object-cover"
                                 />
                             </div>
+                            <Button variant="outline" size="sm">
+  Explore {category}
+</Button>
                             </CardContent>
 
 
@@ -165,7 +171,10 @@ export default function DateIdeasPage() {
               {selectedCategory !== null && !isAnimating && (
                 <div className="animate-fade-in">
                   <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-3xl font-semibold">{selectedCategory} Date Ideas</h2>
+                  <h2 className="text-3xl font-semibold mb-2">
+                    Top 10 {selectedCategory} Date Ideas
+                    </h2>
+
                     <Button
                       variant="outline"
                       onClick={() => {
@@ -182,14 +191,34 @@ export default function DateIdeasPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {ideas[selectedCategory].map((idea, index) => (
                       <Card key={index} className="transition-shadow hover:shadow-md">
-                        <CardHeader className="flex flex-row items-center gap-4">
-                          <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-sm font-bold text-muted-foreground">
-                            {index + 1}
-                          </div>
-                          <CardTitle className="text-base font-medium">{idea}</CardTitle>
-                        </CardHeader>
+                        <CardHeader className="flex flex-row items-center justify-between gap-2">
+  <div className="flex items-center gap-4">
+    <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-sm font-bold text-muted-foreground">
+      {index + 1}
+    </div>
+    <CardTitle className="text-base font-medium">{idea}</CardTitle>
+  </div>
+  <button
+    onClick={() =>
+      setLikedIdeas((prev) => ({
+        ...prev,
+        [`${selectedCategory}-${index}`]: !prev[`${selectedCategory}-${index}`],
+      }))
+    }
+    className="text-rose-500 hover:scale-110 transition-transform"
+    aria-label="Like this idea"
+  >
+    {likedIdeas[`${selectedCategory}-${index}`] ? (
+      <HeartIcon fill="currentColor" className="w-5 h-5" />
+    ) : (
+      <Heart className="w-5 h-5" />
+    )}
+  </button>
+</CardHeader>
+
                         <CardContent>
                           <p className="text-sm text-muted-foreground">Category: {selectedCategory}</p>
+                          
                         </CardContent>
                       </Card>
                     ))}
