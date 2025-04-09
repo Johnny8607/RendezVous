@@ -2,13 +2,17 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Heart, UtensilsCrossed, Palette, Dumbbell, Plane, HeartIcon } from "lucide-react";
+import {
+  Heart,
+  UtensilsCrossed,
+  Palette,
+  Dumbbell,
+  Plane,
+  HeartIcon,
+} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-
-
-
 
 const ideas = {
   Restaurant: [
@@ -69,8 +73,10 @@ const categoryIcons = {
 };
 
 export default function DateIdeasPage() {
-    const [likedIdeas, setLikedIdeas] = useState<{ [key: string]: boolean }>({});
-  const [selectedCategory, setSelectedCategory] = useState<keyof typeof ideas | null>(null);
+  const [likedIdeas, setLikedIdeas] = useState<{ [key: string]: boolean }>({});
+  const [selectedCategory, setSelectedCategory] = useState<
+    keyof typeof ideas | null
+  >(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
   return (
@@ -84,22 +90,31 @@ export default function DateIdeasPage() {
           </div>
           <div className="flex items-center justify-end space-x-4">
             <nav className="flex items-center space-x-3 transition-all">
-            <Link
+              <Link
                 href="/date-ideas"
                 className="px-3 py-2 text-sm font-medium hover: text-primary "
               >
                 Date Ideas
               </Link>
-              <Link href="/availabilities" className="px-3 py-2 text-sm font-medium hover:text-primary">
+              <Link
+                href="/availabilities"
+                className="px-3 py-2 text-sm font-medium hover:text-primary"
+              >
                 Calendar
               </Link>
-              <Link href="/#features" className="px-3 py-2 text-sm font-medium hover:text-primary">
+              <Link
+                href="/#features"
+                className="px-3 py-2 text-sm font-medium hover:text-primary"
+              >
                 Features
               </Link>
-              <Link href="/#how-it-works" className="px-3 py-2 text-sm font-medium hover:text-primary">
+              <Link
+                href="/#how-it-works"
+                className="px-3 py-2 text-sm font-medium hover:text-primary"
+              >
                 How It Works
               </Link>
-              
+
               <Button asChild>
                 <Link href="/signup">Get Started</Link>
               </Button>
@@ -127,14 +142,17 @@ export default function DateIdeasPage() {
                 <div className="animate-fade-in">
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {Object.keys(ideas).map((category) => {
-                      const Icon = categoryIcons[category as keyof typeof categoryIcons];
+                      const Icon =
+                        categoryIcons[category as keyof typeof categoryIcons];
                       return (
                         <Card
                           key={category}
                           onClick={() => {
                             setIsAnimating(true);
                             setTimeout(() => {
-                              setSelectedCategory(category as keyof typeof ideas);
+                              setSelectedCategory(
+                                category as keyof typeof ideas
+                              );
                               setIsAnimating(false);
                             }, 300);
                           }}
@@ -142,25 +160,27 @@ export default function DateIdeasPage() {
                         >
                           <CardHeader>
                             <div className="flex items-center justify-center gap-3">
-                                {Icon && <Icon className="h-6 w-6 text-rose-500" />}
-                                <CardTitle className="text-2xl">{category}</CardTitle>
+                              {Icon && (
+                                <Icon className="h-6 w-6 text-rose-500" />
+                              )}
+                              <CardTitle className="text-2xl">
+                                {category}
+                              </CardTitle>
                             </div>
-                            </CardHeader>
-                            <CardContent>
+                          </CardHeader>
+                          <CardContent>
                             <div className="relative w-full h-60">
-                                <Image
+                              <Image
                                 src={`/date-ideas/${category.toLowerCase()}.jpg`}
                                 alt={`${category} illustration`}
                                 fill
                                 className="rounded-md object-cover"
-                                />
+                              />
                             </div>
                             <Button variant="outline" size="sm">
-  Explore {category}
-</Button>
-                            </CardContent>
-
-
+                              Explore {category}
+                            </Button>
+                          </CardContent>
                         </Card>
                       );
                     })}
@@ -171,8 +191,8 @@ export default function DateIdeasPage() {
               {selectedCategory !== null && !isAnimating && (
                 <div className="animate-fade-in">
                   <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-3xl font-semibold mb-2">
-                    Top 10 {selectedCategory} Date Ideas
+                    <h2 className="text-3xl font-semibold mb-2">
+                      Top 10 {selectedCategory} Date Ideas
                     </h2>
 
                     <Button
@@ -190,35 +210,45 @@ export default function DateIdeasPage() {
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {ideas[selectedCategory].map((idea, index) => (
-                      <Card key={index} className="transition-shadow hover:shadow-md">
+                      <Card
+                        key={index}
+                        className="transition-shadow hover:shadow-md"
+                      >
                         <CardHeader className="flex flex-row items-center justify-between gap-2">
-  <div className="flex items-center gap-4">
-    <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-sm font-bold text-muted-foreground">
-      {index + 1}
-    </div>
-    <CardTitle className="text-base font-medium">{idea}</CardTitle>
-  </div>
-  <button
-    onClick={() =>
-      setLikedIdeas((prev) => ({
-        ...prev,
-        [`${selectedCategory}-${index}`]: !prev[`${selectedCategory}-${index}`],
-      }))
-    }
-    className="text-rose-500 hover:scale-110 transition-transform"
-    aria-label="Like this idea"
-  >
-    {likedIdeas[`${selectedCategory}-${index}`] ? (
-      <HeartIcon fill="currentColor" className="w-5 h-5" />
-    ) : (
-      <Heart className="w-5 h-5" />
-    )}
-  </button>
-</CardHeader>
+                          <div className="flex items-center gap-4">
+                            <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-sm font-bold text-muted-foreground">
+                              {index + 1}
+                            </div>
+                            <CardTitle className="text-base font-medium">
+                              {idea}
+                            </CardTitle>
+                          </div>
+                          <button
+                            onClick={() =>
+                              setLikedIdeas((prev) => ({
+                                ...prev,
+                                [`${selectedCategory}-${index}`]:
+                                  !prev[`${selectedCategory}-${index}`],
+                              }))
+                            }
+                            className="text-rose-500 hover:scale-110 transition-transform"
+                            aria-label="Like this idea"
+                          >
+                            {likedIdeas[`${selectedCategory}-${index}`] ? (
+                              <HeartIcon
+                                fill="currentColor"
+                                className="w-5 h-5"
+                              />
+                            ) : (
+                              <Heart className="w-5 h-5" />
+                            )}
+                          </button>
+                        </CardHeader>
 
                         <CardContent>
-                          <p className="text-sm text-muted-foreground">Category: {selectedCategory}</p>
-                          
+                          <p className="text-sm text-muted-foreground">
+                            Category: {selectedCategory}
+                          </p>
                         </CardContent>
                       </Card>
                     ))}
