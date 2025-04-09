@@ -23,6 +23,13 @@ export default function HomeComponent() {
           <div className="flex items-center justify-end space-x-4">
             <nav className="flex items-center space-x-3 transition-all">
             <Link
+              href="/date-ideas"
+              className="px-3 py-2 text-sm font-medium hover:text-primary"
+            >
+              Date Ideas
+            </Link>
+
+            <Link
                 href="/availabilities"
                 className="px-3 py-2 text-sm font-medium hover:text-primary"
               >

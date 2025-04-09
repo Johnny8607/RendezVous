@@ -8,15 +8,21 @@ import AvailabilityPlanner from "@/components/AvailabilityPlanner";
 export default function AvailabilityPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      {/* ✅ Reuse the header from home */}
       <header className="sticky top-0 z-40 w-full border-b bg-background">
         <div className="container mx-auto flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
           <div className="flex gap-2 items-center text-xl font-bold">
             <Heart className="h-6 w-6 text-rose-500" />
+
             <Link href="/">RendezVous</Link>
           </div>
           <div className="flex items-center justify-end space-x-4">
             <nav className="flex items-center space-x-3 transition-all">
+            <Link
+              href="/date-ideas"
+              className="px-3 py-2 text-sm font-medium hover:text-primary"
+            >
+              Date Ideas
+            </Link>
               <Link
                 href="/availabilities"
                 className="px-3 py-2 text-sm font-medium hover:text-primary"
