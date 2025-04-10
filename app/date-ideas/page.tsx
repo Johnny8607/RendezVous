@@ -13,57 +13,8 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { ideas } from "@/public/date-ideas/ideasData";
 
-const ideas = {
-  Restaurant: [
-    "Dinner at a cozy rooftop bistro",
-    "Wine tasting at a vineyard",
-    "Fondue night for two",
-    "Vegan tasting menu",
-    "Sushi omakase experience",
-    "Picnic in the park with charcuterie",
-    "Tapas and sangria date",
-    "Dessert-only café crawl",
-    "Brunch with live jazz",
-    "Food truck festival sampling tour",
-  ],
-  Activity: [
-    "Paint & Sip class",
-    "Pottery workshop",
-    "Escape room challenge",
-    "Axe throwing session",
-    "Comedy club night",
-    "Outdoor movie screening",
-    "Stargazing night with telescope",
-    "Karaoke battle night",
-    "Cooking class for two",
-    "Art gallery hop with wine breaks",
-  ],
-  Sports: [
-    "Rock climbing challenge",
-    "Mini golf competition",
-    "Bike ride through nature trails",
-    "Ice skating in the evening",
-    "Bowling night with funny shoes",
-    "Try pickleball together",
-    "Go-kart racing like kids",
-    "Rollerblading by the waterfront",
-    "Attend a local sports game",
-    "Beach volleyball if it's warm",
-  ],
-  Travel: [
-    "Weekend road trip to a small town",
-    "Staycation in a themed Airbnb",
-    "Sunset ferry ride",
-    "Explore a nearby island",
-    "Mountain hike with a picnic",
-    "Book a spa weekend getaway",
-    "Take a train to a new city",
-    "Visit a waterfall you've never seen",
-    "Book a surprise mystery destination",
-    "Try a new hotel just for fun",
-  ],
-};
 
 const categoryIcons = {
   Restaurant: UtensilsCrossed,
@@ -92,10 +43,11 @@ export default function DateIdeasPage() {
             <nav className="flex items-center space-x-3 transition-all">
               <Link
                 href="/date-ideas"
-                className="px-3 py-2 text-sm font-medium hover: text-primary "
+                className="px-3 py-2 text-sm font-medium hover:text-primary"
               >
                 Date Ideas
               </Link>
+
               <Link
                 href="/availabilities"
                 className="px-3 py-2 text-sm font-medium hover:text-primary"
@@ -103,18 +55,23 @@ export default function DateIdeasPage() {
                 Calendar
               </Link>
               <Link
-                href="/#features"
+                href="/budgeting"
+                className="px-3 py-2 text-sm font-medium hover:text-primary"
+              >
+                Budget Tracker
+              </Link>
+              <Link
+                href="#features"
                 className="px-3 py-2 text-sm font-medium hover:text-primary"
               >
                 Features
               </Link>
               <Link
-                href="/#how-it-works"
+                href="#how-it-works"
                 className="px-3 py-2 text-sm font-medium hover:text-primary"
               >
                 How It Works
               </Link>
-
               <Button asChild>
                 <Link href="/signup">Get Started</Link>
               </Button>
