@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-
+import Navbar from "@/components/navbar";
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -144,24 +144,7 @@ export default function Budget() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 w-full border-b bg-background">
-        <div className="container mx-auto flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-          <div className="flex gap-2 items-center text-xl font-bold">
-            <Heart className="h-6 w-6 text-rose-500" />
-            <span>RendezVous</span>
-          </div>
-          <div className="flex flex-1 items-center justify-end space-x-4">
-            <nav className="flex items-center space-x-1">
-              <Button variant="ghost" size="icon" asChild>
-                <Link href="/">
-                  <ArrowLeft className="h-5 w-5" />
-                  <span className="sr-only">Back to Home</span>
-                </Link>
-              </Button>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       <main className="flex-1 py-8">
         <div className="container mx-auto px-4 md:px-6">
