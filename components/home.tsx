@@ -10,7 +10,6 @@ import aiHelp from "../public/home/aiHelp.png";
 import dateCreation from "../public/home/dateCreation.png";
 import budget from "../public/home/budget.png";
 
-
 export default function HomeComponent() {
   return (
     <div className="flex min-h-screen flex-col">
@@ -22,18 +21,24 @@ export default function HomeComponent() {
           </div>
           <div className="flex items-center justify-end space-x-4">
             <nav className="flex items-center space-x-3 transition-all">
-            <Link
-              href="/date-ideas"
-              className="px-3 py-2 text-sm font-medium hover:text-primary"
-            >
-              Date Ideas
-            </Link>
+              <Link
+                href="/date-ideas"
+                className="px-3 py-2 text-sm font-medium hover:text-primary"
+              >
+                Date Ideas
+              </Link>
 
-            <Link
+              <Link
                 href="/availabilities"
                 className="px-3 py-2 text-sm font-medium hover:text-primary"
               >
                 Calendar
+              </Link>
+              <Link
+                href="/budgeting"
+                className="px-3 py-2 text-sm font-medium hover:text-primary"
+              >
+                Budget Tracker
               </Link>
               <Link
                 href="#features"
@@ -174,9 +179,7 @@ export default function HomeComponent() {
                   <MapPin className="h-6 w-6" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold">
-                    Date Creation
-                  </h3>
+                  <h3 className="text-2xl font-bold">Date Creation</h3>
                   <p className="text-muted-foreground">
                     Plan every detail of your date with our comprehensive
                     planning tools. Calculate travel times, estimate costs, and

@@ -12,7 +12,6 @@ export default function AvailabilityPage() {
         <div className="container mx-auto flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
           <div className="flex gap-2 items-center text-xl font-bold">
             <Heart className="h-6 w-6 text-rose-500" />
-
             <Link href="/">RendezVous</Link>
           </div>
           <div className="flex items-center justify-end space-x-4">
@@ -23,6 +22,7 @@ export default function AvailabilityPage() {
               >
                 Date Ideas
               </Link>
+
               <Link
                 href="/availabilities"
                 className="px-3 py-2 text-sm font-medium hover:text-primary"
@@ -30,13 +30,19 @@ export default function AvailabilityPage() {
                 Calendar
               </Link>
               <Link
-                href="/#features"
+                href="/budgeting"
+                className="px-3 py-2 text-sm font-medium hover:text-primary"
+              >
+                Budget Tracker
+              </Link>
+              <Link
+                href="#features"
                 className="px-3 py-2 text-sm font-medium hover:text-primary"
               >
                 Features
               </Link>
               <Link
-                href="/#how-it-works"
+                href="#how-it-works"
                 className="px-3 py-2 text-sm font-medium hover:text-primary"
               >
                 How It Works
