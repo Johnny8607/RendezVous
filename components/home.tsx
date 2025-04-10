@@ -2,7 +2,8 @@
 import Link from "next/link";
 import { Calendar, Heart, Lightbulb, MapPin, PiggyBank } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import heroAnimation from "../public/home/hero.json";
 import Image from "next/image";
 import datePlanning from "../public/home/datePlanning.png";
@@ -39,6 +40,12 @@ export default function HomeComponent() {
                 className="px-3 py-2 text-sm font-medium hover:text-primary"
               >
                 Budget Tracker
+              </Link>
+              <Link 
+                href="/plan-a-date" 
+                className="px-3 py-2 text-sm font-medium hover:text-primary"
+              >
+                Plan A Date
               </Link>
               <Link
                 href="#features"

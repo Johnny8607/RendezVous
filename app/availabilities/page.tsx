@@ -35,6 +35,12 @@ export default function AvailabilityPage() {
               >
                 Budget Tracker
               </Link>
+              <Link 
+                href="/plan-a-date" 
+                className="px-3 py-2 text-sm font-medium hover:text-primary"
+              >
+                Plan A Date
+              </Link>
               <Link
                 href="#features"
                 className="px-3 py-2 text-sm font-medium hover:text-primary"
