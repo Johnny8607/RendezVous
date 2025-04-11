@@ -94,7 +94,7 @@ export default function HomeComponent() {
                 {/* Hero Image Placeholder */}
                 <div className="aspect-video w-full overflow-hidden rounded-xl">
                   <div className="flex h-full items-center justify-center">
-                    <Lottie animationData={heroAnimation} loop={true} />
+                    <Lottie animationData={heroAnimation} loop={true} className="w-full"/>
                   </div>
                 </div>
               </div>
